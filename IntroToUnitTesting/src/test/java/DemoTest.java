@@ -1,71 +1,75 @@
-/**
- * The class containing your tests for the {@link Demo} class.  Make sure you
- * test all methods in this class (including both
- * {@link Demo#main(String[])} and
- * {@link Demo#isTriangle(double, double, double)}).
- */
- import static org.junit.jupiter.api.Assertions.*;
- import org.junit.jupiter.api.Test;
- import java.io.ByteArrayInputStream;
- import java.io.InputStream;
+import static org.junit.Assert.*;
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
 
- public class DemoTest {
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.io.ByteArrayOutputStream;
 
-     @Test
-     public void testIsTriangle_ValidTriangle() {
-         assertTrue(Demo.isTriangle(3, 4, 5));
-     }
+public class DemoTest {
 
-     @Test
-     public void testIsTriangle_InvalidTriangle() {
-         assertFalse(Demo.isTriangle(1, 2, 10));
-     }
+    @Test
+    public void testIsTriangle_ValidTriangle() {
+        assertTrue(Demo.isTriangle(3, 4, 5));
+    }
 
-     @Test
-     public void testMain_ValidTriangleInput() {
-         String input = "3\n4\n5\n";
-         InputStream in = new ByteArrayInputStream(input.getBytes());
-         System.setIn(in);
+    @Test
+    public void testIsTriangle_InvalidTriangle() {
+        assertFalse(Demo.isTriangle(1, 2, 10));
+    }
 
-         String expectedOutput = "Enter side 1: \n" +
-                                 "Enter side 2: \n" +
-                                 "Enter side 3: \n" +
-                                 "This is a triangle.\n";
+    @Test
+    public void testMain_ValidTriangleInput() {
+        String input = "3\n4\n5\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
 
-         Demo.main(new String[] {});
-         assertEquals(expectedOutput, getConsoleOutput());
-     }
+        String expectedOutput = "Enter side 1: \nEnter side 2: \nEnter side 3: \nThis is a triangle.\n";
 
-     @Test
-     public void testMain_InvalidTriangleInput() {
-         String input = "1\n2\n10\n";
-         InputStream in = new ByteArrayInputStream(input.getBytes());
-         System.setIn(in);
+        Demo.main(new String[] {});
+        assertEquals(expectedOutput, getConsoleOutput());
+    }
+    @Test
+    public void testMain_ValidTriangleInput_2() {
+        String input = "3\n4\n5\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
 
-         String expectedOutput = "Enter side 1: \n" +
-                                 "Enter side 2: \n" +
-                                 "Enter side 3: \n" +
-                                 "This is not a triangle.\n";
+        String expectedOutput = "Enter side 1: \nEnter side 2: \nEnter side 3: \nThis is a triangle.\n";
 
-         Demo.main(new String[] {});
-         assertEquals(expectedOutput, getConsoleOutput());
-     }
+        Demo.main(new String[] {});
+        assertEquals(expectedOutput, getConsoleOutput());
+    }
 
-     private String getConsoleOutput() {
-         return outContent.toString();
-     }
+    @Test
+    public void testMain_InvalidTriangleInput() {
+        String input = "1\n2\n10\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
 
-     // Define outContent to capture console output
-     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-     private final PrintStream originalOut = System.out;
+        String expectedOutput = "Enter side 1: \nEnter side 2: \nEnter side 3: \nThis is not a triangle.\n";
 
-     @BeforeEach
-     public void setUpStreams() {
-         System.setOut(new PrintStream(outContent));
-     }
+        Demo.main(new String[] {});
+        assertEquals(expectedOutput, getConsoleOutput());
+    }
 
-     @AfterEach
-     public void restoreStreams() {
-         System.setOut(originalOut);
-     }
- }
+    private String getConsoleOutput() {
+        return outContent.toString();
+    }
+
+    // Define outContent to capture console output
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+    @Before
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @After
+    public void restoreStreams() {
+        System.setOut(originalOut);
+    }
+	
+}
