@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DemoTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-08-28T10:00:27" hostname="kernel-loophole" time="0.112">
+<testsuite name="DemoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-08-28T23:16:07" hostname="kernel-loophole" time="0.091">
   <properties/>
-  <testcase name="testIsTriangle_InvalidTriangle" classname="DemoTest" time="0.004"/>
-  <testcase name="testIsTriangle_ValidTriangle" classname="DemoTest" time="0.001"/>
-  <testcase name="testMain_InvalidTriangleInput" classname="DemoTest" time="0.101"/>
-  <testcase name="testMain_ValidTriangleInput" classname="DemoTest" time="0.003"/>
+  <testcase name="testMain_ValidTriangleInput_2" classname="DemoTest" time="0.084"/>
+  <testcase name="testIsTriangle_InvalidTriangle" classname="DemoTest" time="0.0"/>
+  <testcase name="testIsTriangle_ValidTriangle" classname="DemoTest" time="0.0"/>
+  <testcase name="testMain_InvalidTriangleInput" classname="DemoTest" time="0.002"/>
+  <testcase name="testMain_ValidTriangleInput" classname="DemoTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
